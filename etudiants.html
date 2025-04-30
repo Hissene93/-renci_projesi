@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Liste des étudiants</h2>
+<a href="{{ url_for('ajouter_etudiant') }}">Ajouter un étudiant</a>
+<ul>
+    {% for e in etudiants %}
+    <li>{{ e.prenom }} {{ e.nom }} - Classe : {{ e.classe }}, Âge : {{ e.age }}</li>
+    {% endfor %}
+</ul>
+{% if not etudiants %}
+<p>Aucun étudiant ajouté.</p>
+{% endif %}
+{% endblock %}

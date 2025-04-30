@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Liste des cours</h2>
+<a href="{{ url_for('ajouter_cours') }}">Ajouter un cours</a>
+<ul>
+    {% for c in cours %}
+    <li>{{ c.nom }} – Professeur : {{ c.professeur }}</li>
+    {% endfor %}
+</ul>
+{% if not cours %}
+<p>Aucun cours ajouté.</p>
+{% endif %}
+{% endblock %}

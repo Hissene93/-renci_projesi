@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Ajouter une note</h2>
+<form method="post">
+    <select name="etudiant" required>
+        {% for e in etudiants %}
+        <option value="{{ e.prenom }} {{ e.nom }}">{{ e.prenom }} {{ e.nom }}</option>
+        {% endfor %}
+    </select><br>
+    <select name="cours" required>
+        {% for c in cours %}
+        <option value="{{ c.nom }}">{{ c.nom }}</option>
+        {% endfor %}
+    </select><br>
+    <input name="note" type="number" placeholder="Note" required><br>
+    <button type="submit">Ajouter</button>
+</form>
+{% endblock %}

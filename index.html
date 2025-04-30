@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h1>Bienvenue sur App Étudiant</h1>
+<p>Utilisez le menu pour naviguer entre les fonctionnalités.</p>
+
+<div>
+    <h2>Liste des Étudiants</h2>
+    <ul>
+        {% for etudiant in etudiants %}
+            <li>{{ etudiant.nom }} {{ etudiant.prenom }} - Classe : {{ etudiant.classe }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('ajouter_etudiant') }}">Ajouter un étudiant</a>
+</div>
+
+<div>
+    <h2>Liste des Cours</h2>
+    <ul>
+        {% for cours_item in cours %}
+            <li>{{ cours_item.nom }} - Professeur : {{ cours_item.professeur }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('ajouter_cours') }}">Ajouter un cours</a>
+</div>
+
+<div>
+    <h2>Liste des Notes</h2>
+    <ul>
+        {% for note_item in notes %}
+            <li>{{ note_item.etudiant }} - {{ note_item.cours }} : {{ note_item.note }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('ajouter_note') }}">Ajouter une note</a>
+</div>
+
+{% endblock %}
